@@ -21,15 +21,37 @@
 
         <!-- Add your site or application content here -->
         <div id="app">
+            <!-- homework -->
             <h1>Hello {{ name }}!</h1>
+            <label for="gender-prompt"><h3>Enter your gender:</h3></label>
+            <template v-if="!gender">
+                <p>So you can't decide? Fine!</p>
+            </template>
+            <select id="gender-prompt" v-model="gender">
+                <option value="">Pick One!</option>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+            </select>
+
             <label for="name-prompt"><h3>Enter your name:</h3></label>
             <input id="name-prompt" type="text" v-model="name">
+            <!-- v-show demo -->
+            <h1 v-if="!message">You must send a message for help!</h1>
+            <button v-else>
+                send for help!
+            </button>
+            <div id="v-show-demo">
+                <textarea v-model="message" name="" id="" cols="30" rows="10"></textarea>
+                <pre>
+                    {{ $data }}
+                </pre>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/vendor/vue.min.js"></script>
+        <script src="js/vendor/vue.js"></script>
         <script src="js/main.js"></script>
 
 
